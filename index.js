@@ -10,10 +10,13 @@ io.sockets.on('connection',
   function (socket) { 
 	var id = socket.id;
 	player[id]=socket;
+	socket.on('test', function(data) {
+		socket.emit('test',data);		
+  	});	
   }
 );
 setInterval(function(){
 	for (var i in player){
-		player[i].emit("test",{time:Date.now()});
+		//player[i].emit("test",{time:Date.now()});
 	}
 },1000/500);
