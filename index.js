@@ -13,7 +13,6 @@ io.sockets.on('connection',
   }
 );
 setInterval(function(){
-	console.log("Sending....");
 	for (var i in player){
 		player[i].emit("test",{time:Date.now()});
 	}
